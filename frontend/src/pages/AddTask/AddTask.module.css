@@ -1,0 +1,37 @@
+.tagsbox {   
+    /* margin-left: 50px; */
+    border: 1px solid #eeeeee;
+    padding: .5em .75em;
+    border-radius: 5px;
+    width: min(80vw, 600px);
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5em;
+}
+
+.tagsitem {
+    background-color: #bcedfc;
+    display: inline-block;
+    padding: .5em .75em;   
+}
+
+.tagsitem .close {
+    height: 20px;
+    width: 20px;
+    color: gray;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    margin-left: .5em;
+    font-size: 18px;
+}
+
+.tagsinput {
+    flex-grow: 1;
+    padding: .5em 0;
+    border: none;
+    outline: none;
+}
