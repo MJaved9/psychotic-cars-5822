@@ -1,0 +1,119 @@
+.Bitrix24_Solutions_box{
+display: grid;
+    background: #409eef;
+    height: 136px;
+    width: 100%;
+    background: -webkit-linear-gradient(-45deg, #2fc7f7 0%, #409eef 100%);
+    background: -o-linear-gradient(-45deg, #2fc7f7 0%, #409eef 100%);
+    background: linear-gradient(135deg, #2ca9d0 0%, #409eef 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#2fc7f7, endColorstr=#409eef);
+
+}
+.Bitrix24_Solutions_Box_h1{
+    color: white;
+
+    font-size: 3rem;
+    margin: auto;
+    margin-left: 10%;
+    
+
+}
+
+.last_Div{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    /* background-color: teal; */
+    grid-template-rows: 650px;
+    grid-gap: 20px;
+    margin-left: 8% ;
+    margin-right: 8%;
+   
+    line-height: 60px;
+    /* border: 1px solid red; */
+
+}
+.img_div{
+
+    margin-bottom: 6%;
+}
+
+.img_div1{
+
+    margin-bottom: 16%;
+}
+
+
+.last_div_p{
+    color: black;
+
+}
+.last_div_p{
+   cursor: pointer;
+     color: #1ABDEF;
+    
+}
+
+.last_div_p:hover{
+    color: #0071bd;
+     
+ }
+
+@media only screen and (min-width: 0px) and (max-width:320){
+    .Bitrix24_Solutions_box{
+        /* display: grid; */
+            background: #409eef;
+            height: 136px;
+            width: 100%;
+            
+        
+        }
+        .Bitrix24_Solutions_Box_h1{
+            color: white;
+            /* background-color: red; */
+            font-size: 2.5rem;
+            margin: auto;
+            margin-left: 10%;
+            
+        
+        }
+  }
+
+  @media screen and (min-width: 720px) {
+    .Bitrix24_Solutions_box{
+        display: grid;
+            background: #409eef;
+            height: 136px;
+            width: 100%;
+          
+        }
+        .Bitrix24_Solutions_Box_h1{
+            color: white;
+            /* background-color: red; */
+            font-size: 2.5rem;
+            margin: auto;
+            margin-left: 10%;
+            
+        
+        }
+  }
+
+  @media only screen and (min-width: 0px) and (max-width:580px){
+
+    .last_Div{
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: repeat(650px,1fr);
+
+    
+    }
+  }
+  @media only screen and (min-width: 581px) and (max-width:880px){
+
+    .last_Div{
+      grid-template-columns: repeat(4,1fr);
+      grid-template-rows: repeat(650px,1fr);
+
+    
+    }
+  }
+
+
