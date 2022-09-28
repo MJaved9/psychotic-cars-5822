@@ -1,6 +1,4 @@
 import { Box } from "@chakra-ui/react";
-import Sidebar from "./components/Sidebar";
-import TeamMembers from "./pages/TeamMembers";
 
 function App() {
   return (
