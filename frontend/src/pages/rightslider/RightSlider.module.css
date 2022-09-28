@@ -1,0 +1,39 @@
+.rightIcon {
+    height: 60px;
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    position: relative;
+    transition: all 0.6s ease;
+  }
+  .logoBorder {
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    background-color: rgb(47, 129, 199);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+  
+  .rightIcon:hover {
+    background-color:rgb(52, 95, 152);
+  }
+  .mailLogo{
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    background-color: rgb(201, 124, 110);
+    font-size: 21px;
+    padding-top:5px;
+  }
