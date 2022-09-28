@@ -1,0 +1,45 @@
+.connect {
+    display: flex;
+    align-items: center;
+}
+
+
+#icon,
+#ficon,
+#ticon,
+#apcon,
+#zoicon  {
+  height: 45px;
+  width: 45px; 
+  /* background-color: white; */
+  /* margin-left: 5px; */
+}
+
+
+.active,
+#about:hover {
+  background-color: gray;
+  color: white;
+}
+
+
+#ficon {
+  color: #38659f;
+}
+#apcon {
+  color: black;
+}
+
+#ticon {
+  color: #1ea1f2;
+}
+
+#zoicon {
+    color: #4690fb;
+}
+
+#qrcode {
+    height: 70px;
+  width: 70px;
+  color: #848b93;
+}
