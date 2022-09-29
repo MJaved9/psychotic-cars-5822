@@ -19,7 +19,7 @@ import { useDisclosure } from "@chakra-ui/react";
 
 function SignupModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [username, setUsername] = useState("");
+  const [name, setname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [age,setAge]=useState("")
@@ -29,15 +29,15 @@ function SignupModal() {
   const finalRef = React.useRef(null);
 
   const handleSignup = async () => {
-    console.log(username, email, password);
+    console.log(name, email, password,age);
     var user = {
-      username,
+      name,
       email,
       password,
       age,
     };
 
-    await fetch("http://locahost:8080/signup", {
+    await fetch("http://localhost:7500/signup", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -47,7 +47,7 @@ function SignupModal() {
       .then((r) => r.json())
       .then((r) => {
         console.log(r);
-        setUsername("");
+        setname("");
         setEmail("");
         setPassword("");
         setAge("");
@@ -88,12 +88,12 @@ function SignupModal() {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>name</FormLabel>
               <Input
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={name}
+                onChange={(e) => setname(e.target.value)}
                 ref={initialRef}
-                placeholder="enter username"
+                placeholder="enter name"
               />
             </FormControl>
             <FormControl>
@@ -119,7 +119,7 @@ function SignupModal() {
               <FormLabel>Age</FormLabel>
               <Input
                 value={age}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setAge(e.target.value)}
                 placeholder="enter Age"
               />
             </FormControl>
