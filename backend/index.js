@@ -19,8 +19,8 @@ app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 
 const PORT = process.env.PORT || 7500;
-app.use("tasks", TaskRouter);
-app.use("projects", ProjectRouter);
+app.use("/tasks", TaskRouter);
+app.use("/projects", ProjectRouter);
 
 app.listen(PORT, async () => {
   try {
