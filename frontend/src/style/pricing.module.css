@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.pricing_container{
+    width: 100%;
+}
+.pricing_heading{
+    width: 100%;
+    background-color: #37B2F3;
+}
+.pricing_heading > div{
+    max-width: 1200px;
+    margin: auto;
+    padding: 41px 15px 47px;
+}
+.pricing_heading > div > h1{
+    color: #FFFF;
+    font-size: 48px;
+}
+.pricing_plans_container{
+    max-width: 1200px;
+    margin: auto;
+    padding: 48px 0;
+}
+.pricing_archived_plans{
+    display: flex;
+    align-items: center;
+    padding: 3px 10px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #525C69;
+    font-family: "Montserrat", "Open Sans", "Helvetica Neue", Verdana, "Helvetica CY", "Nimbus Sans L", sans-serif;;
+    justify-content: space-between;
+}
+.archived_plans_left, .archived_plans_right{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    grid-gap: 10px;
+}
+.archived_plans_left > div, .archived_plans_right > div{
+    border: 2px solid #3BC8F5;
+    border-radius: 25px;
+    padding: 5px 10px;
+    color: #262626;
+}
+.archived_plans_left > div{
+    grid-gap: 10px;
+}
+.archived_plans_left div{
+    display: flex;
+    align-items: center;
+}
+.archived_plans_left > div > p{
+    margin-right: 20px;
+
+}
+.archived_plans_left > div > div >p {
+    background-color: #FFD91A;
+    padding: 2px;
+    border-radius: 3px;
+    font-style: italic;
+    font-weight: bold;
+}
