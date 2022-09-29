@@ -10,10 +10,21 @@ import {
 import React, { useState } from "react";
 import { BsPlus } from "react-icons/bs";
 import { BiSearchAlt2 } from "react-icons/bi";
-import { ImUsers } from "react-icons/im";
+import { HiUsers } from "react-icons/hi";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
 
 const TeamMembers = () => {
   const [data, setData] = useState([]);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
   return (
     <Stack w="80%" p="50px">
       <Flex
@@ -47,7 +58,7 @@ const TeamMembers = () => {
           </Button>
         </Flex>
         <Box>
-          <Button bg="#3bc8f5" w="150px">
+          <Button bg="#3bc8f5" w="150px" ref={btnRef} onClick={onOpen}>
             <Flex alignItems="center">
               <BsPlus
                 style={{ color: "#fff", fontSize: "25px", fontWeight: "600" }}
@@ -59,8 +70,14 @@ const TeamMembers = () => {
       </Flex>
       <Stack borderRadius="20px" w="100%" h="400px" bg="#fff">
         {data.length === 0 ? (
-          <Flex w="100%" alignItems="center" justifyContent="center" h="100%">
-            <ImUsers fontSize="80px" color="gray.400" />
+          <Flex
+            w="100%"
+            alignItems="center"
+            justifyContent="center"
+            h="100%"
+            gap="20px"
+          >
+            <HiUsers fontSize="80px" color="gray" />
             <Heading color="gray.500" fontWeight="400" fontSize="25px">
               Team Members Will Display Here
             </Heading>
@@ -69,6 +86,34 @@ const TeamMembers = () => {
           <Text>yes</Text>
         )}
       </Stack>
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Add Team Member</DrawerHeader>
+
+          <DrawerBody>
+            <form>
+              <Input placeholder="Name" required />
+              <Input m="20px 0" placeholder="Email" required />
+              <Button
+                type="submit"
+                display="block"
+                w="100%"
+                bg="#3bc8f5"
+                color="#fff"
+              >
+                Submit
+              </Button>
+            </form>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </Stack>
   );
 };
