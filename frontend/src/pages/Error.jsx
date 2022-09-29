@@ -1,12 +1,12 @@
 import { Box, Button, Heading, Image } from "@chakra-ui/react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-// import Navbar from "../../Components/Navbar";
+import Homenavbar from "../components/HomeNavbar";
 const Error = () => {
   const navigate = useNavigate();
   return (
     <Box position={"relative"} height="100vh" width="100vw">
-      {/* <Navbar /> */}
+      <Homenavbar/>
       <Box
         width="80%"
         position="absolute"
