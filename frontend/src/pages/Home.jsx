@@ -5,7 +5,7 @@ import { Button } from "@chakra-ui/react";
 
 export const Home = () => {
   return (
-    <div>
+    <div style={{background:"white"}}>
       <Homenavbar />
       <div
         style={{

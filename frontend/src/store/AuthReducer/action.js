@@ -5,7 +5,7 @@ const login = (payload) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
   return axios({
     method: "post",
-    url: "https://reqres.in/api/login",
+    url: "http://localhost:7500/login",
     data: payload,
   })
     .then((r) => {
