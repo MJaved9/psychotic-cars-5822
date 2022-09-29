@@ -7,6 +7,6 @@ const TaskSchema = new Schema({
   deadline: { type: String, required: true },
 });
 
-const TaskModel = new model(task, TaskSchema);
+const TaskModel = new model("task", TaskSchema);
 
 module.exports = { TaskModel };

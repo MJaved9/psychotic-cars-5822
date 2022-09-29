@@ -6,6 +6,8 @@ const cors = require("cors");
 const { signupRouter } = require("./routes/signup.route");
 const { connection } = require("./configs/db");
 const { loginRouter } = require("./routes/login.route");
+const { TaskRouter } = require("./routes/tasks.route");
+const { ProjectRouter } = require("./routes/projects.route");
 
 const app = express();
 
@@ -17,6 +19,8 @@ app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 
 const PORT = process.env.PORT || 7500;
+app.use("tasks", TaskRouter);
+app.use("projects", ProjectRouter);
 
 app.listen(PORT, async () => {
   try {
