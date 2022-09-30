@@ -1,7 +1,8 @@
 import * as types from "./actionType";
 const addTask = (new_task, token) => async (dispatch) => {
+  console.log("new_task",new_task)
   dispatch({ type: types.ADD_TASK_REQUEST });
-  return await fetch("", {
+  return await fetch("http://localhost:7500/tasks/create", {
     method: "POST",
     body: JSON.stringify(new_task),
     headers: {
@@ -12,9 +13,10 @@ const addTask = (new_task, token) => async (dispatch) => {
     .then((r) => r.json())
     .then((r) => {
  
-      dispatch({ type: types.ADD_TASK_SUCCESS, payload: r.data });
-      return types.ADD_TASK_SUCCESS;
+      dispatch({ type: types.ADD_TASK_SUCCESS,payload:new_task });
+      // return types.ADD_TASK_SUCCESS;
     })
+
     .catch((e) => {
       console.log("error", e);
       dispatch({ type: types.ADD_TASK_FAILURE });
@@ -23,7 +25,7 @@ const addTask = (new_task, token) => async (dispatch) => {
 
 const getTask = (token) => async (dispatch) => {
   dispatch({ type: types.GET_TASK_REQUEST });
-  await fetch("", {
+  await fetch("http://localhost:7500/tasks/getTasks", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -32,8 +34,8 @@ const getTask = (token) => async (dispatch) => {
   })
     .then((r) => r.json())
     .then((r) => {
-      // console.log(r.data);
-      dispatch({ type: types.GET_TASK_SUCCESS, payload: r.data });
+      console.log(r,"data");
+      dispatch({ type: types.GET_TASK_SUCCESS, payload: r.tasks});
       return types.GET_TASK_SUCCESS;
     })
     .catch((e) => {
@@ -43,7 +45,7 @@ const getTask = (token) => async (dispatch) => {
 
 const deleteTask = (id, token) => async (dispatch) => {
   return await fetch(
-    `/${id}/delete`,
+    `http://localhost:7500/tasks/delete/${id}`,
     {
       method: "DELETE",
       headers: {
@@ -60,7 +62,7 @@ const deleteTask = (id, token) => async (dispatch) => {
 };
 
 const updateTask = (id, token, payload) => async (dispatch) => {
-  return await fetch(`/${id}/edit`, {
+  return await fetch(`http://localhost:7500/tasks/edit/${id}`, {
     method: "PATCH",
     body: JSON.stringify(payload),
     headers: {
