@@ -1,16 +1,14 @@
-import {
-    legacy_createStore,
-    applyMiddleware,
-    compose,
-    combineReducers,
-  } from "redux";
-  import thunk from "redux-thunk";
-  import { reducer as AuthReducer } from "./AuthReducer/reducer";
-  import { reducer as taskAndProject } from "./taskAndProject/reducer";
-  const rootReducer = combineReducers({AuthReducer,taskAndProject})
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  export const store = legacy_createStore(
-    rootReducer,
-    composeEnhancers(applyMiddleware(thunk))
-  );
-  
+import { legacy_createStore, applyMiddleware, combineReducers } from "redux";
+import thunk from "redux-thunk";
+import { authReducer } from "./AuthReducer/reducer";
+import { taskReducer } from "./taskAndProject/reducer";
+import { teamReducer } from "./TeamMembers/teamReducer";
+const rootReducer = combineReducers({
+  auth: authReducer,
+  task: taskReducer,
+  team: teamReducer,
+});
+
+const middleware = applyMiddleware(thunk);
+
+export const store = legacy_createStore(rootReducer, middleware);

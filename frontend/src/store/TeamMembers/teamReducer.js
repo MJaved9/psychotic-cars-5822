@@ -28,7 +28,7 @@ const teamIntialState = {
   },
 };
 
-const teamReducer = (state = teamIntialState, { type, payload }) => {
+export const teamReducer = (state = teamIntialState, { type, payload }) => {
   switch (type) {
     case GET_TEAM_MEMBERS_LOADING: {
       return {

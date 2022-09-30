@@ -4,13 +4,14 @@ import Login from '../pages/Login'
 import Error from '../pages/Error'
 import Solution from '../pages/Solutions'
 import { Home } from "../pages/Home";
+import Main from "../pages/MainTask/Main";
 export default function Allroutes(){
   return (
-    <div>
+    <div style={{width:"100%"}}>
     <Routes>
       <Route path="/" element={<Home/>}/>
     <Route path="/login" element={<Login />} />
-    <Route path="*" element={<Error />} />
+    <Route path="/Task" element={<Main/> } />
     <Route path="/solution" element={<Solution/>}/>
     </Routes>
     </div>
