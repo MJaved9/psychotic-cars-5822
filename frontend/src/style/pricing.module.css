@@ -64,3 +64,67 @@
     font-style: italic;
     font-weight: bold;
 }
+.plansCont{
+    width: 100%;
+}
+.planContainer{
+    width: 22%;
+}
+.planHead{
+    text-align: center;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 10px ;
+}
+.planHead > h3{
+    font-size: 22px;
+    font-weight: 600;
+}
+.planHead > p{
+    min-height: 40px;
+    max-width: 290px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.2;
+    opacity: .4;
+}
+.planUsers{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.planUsers > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.planUsers > div svg {
+    color: #F93000;
+    font-size: 25px;
+}
+.planUsers > div h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+.planUsers > p{
+    text-align: center;
+    font-weight: 400;
+
+}
+.Free{
+    background-color: #E4F4A5;
+}
+
+.price{
+
+}
+.green {
+    color: #7C9B00;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
