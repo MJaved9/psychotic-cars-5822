@@ -1,0 +1,29 @@
+.input{
+    height: 50px;
+    width: 100%;
+    border: 1px solid white;
+    /* color: white; */
+    background-color: white;
+    border-radius: 5px;
+}
+@media only screen and (min-width: 0px) and (max-width:580px){
+    .input{
+        height: 50px;
+        width: 100%;
+        border: 1px solid white;
+        /* color: white; */
+        background-color: white;
+        border-radius: 5px;
+    }
+    
+  }
+  @media only screen and (min-width: 581px) and (max-width:880px){
+    .input{
+        height: 50px;
+        width: 100%;
+        border: 1px solid white;
+        /* color: white; */
+        background-color: white;
+        border-radius: 5px;
+    }
+  }

@@ -1,0 +1,78 @@
+.main_div{
+    height: 80px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.h1{
+    color: white;
+    /* font-weight: bold; */
+    font-size: 30px;
+
+}
+
+.stare_icon{
+  
+    color: white;
+    margin-top: 8px;
+    font-size: 30px;
+}
+.input{
+    height: 50px;
+    width: 200%;
+}
+.first_div{
+    display:grid;
+   margin-top:1%;
+    gap:10px ; 
+    grid-template-columns:17% 8% 60% 3% 3%;
+    
+}
+.my_task_div{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    /* gap: px; */
+    /* margin-right: -3%; */
+}
+.last_div_icon{
+    margin-top: 2%;
+    padding-top: 2%;
+    font-size: 25px;
+}
+
+@media only screen and (min-width: 0px) and (max-width:580px){
+
+    .first_div{
+        
+       margin-top:1%;
+        gap:10px ; 
+        grid-template-columns:15% 8% 60% 8% 8%;
+    }
+    .my_task_div{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+    }
+    .main_div{
+        height: 80px;
+        width: 100%;
+    }
+  }
+  @media only screen and (min-width: 581px) and (max-width:880px){
+    .first_div{
+       
+       margin-top:1%;
+        gap:10px ; 
+        grid-template-columns:15% 8% 60% 8% 8%;
+    }
+
+    
+    .my_task_div{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+    }
+    .main_div{
+        height: 80px;
+        width: 100%;
+    }
+  }
