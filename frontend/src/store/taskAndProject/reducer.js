@@ -16,9 +16,10 @@ const taskReducer = (state = initialState, action) => {
         isError: false,
       };
     case types.ADD_TASK_SUCCESS:
+      
       return {
         ...state,
-        tasks: [...state.tasks, payload],
+        tasks: {...state.tasks, payload},
         isLoading: false,
         isError: false,
       };

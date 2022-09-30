@@ -34,7 +34,9 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
+// import {  } from "react-redux";
 import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
 import { FaUserCircle } from "react-icons/fa";
 import {
@@ -44,8 +46,11 @@ import {
   updateTask,
 } from "../store/taskAndProject/action";
 
-export const Tasktable = () => {
+const email = localStorage.getItem("email")
+
+ const TaskTable = () => {
   const tasks = useSelector((state) => state.taskAndProject.tasks);
+  // console.log(tasks)
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [title, setTitle] = useState("");
@@ -58,13 +63,15 @@ export const Tasktable = () => {
   const [time, setTime] = useState("");
   const [tag, setTag] = useState("");
   const [id, setId] = useState("");
-//   const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
   const dispatch = useDispatch();
   useEffect(() => {
-    // dispatch(getTask(token));
+    dispatch(getTask(token));
   }, []);
 
+
+  console.log(tasks,"task")
   const addTaskHandler = () => {
     const updatedTask = {
       title,
@@ -81,8 +88,7 @@ export const Tasktable = () => {
 
     // console.log(updatedTask);
 
-    // dispatch(updateTask(id, token, updatedTask));
-    dispatch(updateTask(id, updatedTask));
+    dispatch(updateTask(id, token, updatedTask));
     onClose();
   };
   const handleKeyDown = (e) => {
@@ -91,16 +97,15 @@ export const Tasktable = () => {
     console.log(e.target.value);
     const value = e.target.value;
     // if(value.trim()) return
-    setassignedToId([...assignedToId, value]);
+    assignedToId([...assignedToId, value]);
     e.target.value = "";
   };
   const handleDelete = async (id) => {
     // console.log("Delete", id);
-    // (id, token)
-    dispatch(deleteTask(id)).then((r) => {
+    dispatch(deleteTask(id, token)).then((r) => {
       // console.log(r);
 
-      if (r === "Delete_TASK") {
+      if (r == "Delete_TASK") {
         toast({
           title: "Task Deleted",
           description: "Deleted the task",
@@ -135,7 +140,7 @@ export const Tasktable = () => {
   };
 
   return (
-    <div style={{backgroundColor:'white'}}>
+    <div>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="xl">
         <DrawerOverlay>
           <DrawerContent>
@@ -290,7 +295,6 @@ export const Tasktable = () => {
         <Table variant="simple" colorScheme="blackAlpha">
           <Thead>
             <Tr>
-               
               <Th pl="70px">Name</Th>
               <Th>Active</Th>
               <Th> Deadline</Th>
@@ -300,8 +304,8 @@ export const Tasktable = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {tasks.length > 0
-              ? tasks.map((e) => {
+            { tasks?.length > 0
+              ? tasks?.map((e) => {
                   return (
                     <Tr key={e._id}>
                       <Td>
@@ -332,25 +336,25 @@ export const Tasktable = () => {
                       <Td>
                         <div style={{ display: "flex", gap: "5px" }}>
                           <FaUserCircle size="20px" />
-                          {e.creator}
+                          {e.description}
                         </div>
                       </Td>
                       <Td>
                         <div style={{ display: "flex", gap: "5px" }}>
                           <FaUserCircle size="20px" />
                           {e.assignedToId.map((el, index) => {
-                            return <p key={index}>{el}</p>;
+                            return <p key={index}>{email}</p>;
                           })}
                         </div>
                       </Td>
                       <Td>
-                        <Tag
+                        {/* <Tag
                           backgroundColor="rgb(232,234,239)"
                           color="gray"
                           variant="solid"
                         >
-                          {e.tag}
-                        </Tag>
+                          {e.deadline} */}
+                        {/* </Tag>  */}
                       </Td>
                     </Tr>
                   );
@@ -362,3 +366,4 @@ export const Tasktable = () => {
     </div>
   );
 };
+export default TaskTable
