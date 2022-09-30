@@ -135,7 +135,7 @@ export const Tasktable = () => {
   };
 
   return (
-    <div>
+    <div style={{backgroundColor:'white'}}>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="xl">
         <DrawerOverlay>
           <DrawerContent>

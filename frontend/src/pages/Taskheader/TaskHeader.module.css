@@ -1,0 +1,25 @@
+.main_Div{
+    height: 70px;
+    /* border: 1px solid red; */
+    width: 100%;
+    background-color: white;
+    border-radius: 13px;
+    box-sizing: border-box;
+}
+.first_Child{
+    display: flex;
+    gap: 20px;
+    margin-left: 2%;
+    margin-top: 1.5%;
+}
+.task_p{
+  color: rgb(16, 88, 208);
+}
+.p{
+    cursor: pointer;
+    
+}
+.p:hover{
+
+    color: rgb(16, 88, 208);
+}
