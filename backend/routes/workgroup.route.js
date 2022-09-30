@@ -1,55 +1,64 @@
 const { Router } = require("express");
-const { WorkGroupModel } = require("../models/projects.model");
-
+const { WorkGroupModel } = require("../models/workgroups.model");
+const { authentication } = require("../middlewares/authentication");
 const WorkGroupRouter = Router();
 
-WorkGroupRouter.get("/getGroups", async (req, res) => {
+WorkGroupRouter.get("/getGroups", authentication, async (req, res) => {
   try {
-    const userId = req.user_data._id;
+    const { userId } = req.body;
+    console.log(userId);
     const groups = await WorkGroupModel.find({ userId });
-    tasks.save();
-    return res.status(201).send({ type: "success", groups: groups });
+    res.status(201).send({ type: "success", groups: groups });
   } catch (error) {
-    return res.status(500).send({ type: "error", message: "An error occured" });
+    console.log(error);
+    res.status(500).send({ type: "error", message: "An error occured" });
   }
 });
 
-WorkGroupRouter.post("/create", async (req, res) => {
+WorkGroupRouter.post("/create", authentication, async (req, res) => {
   try {
-    const userId = req.user_data._id;
-    const new_group = await new WorkGroupModel({ ...req.body, userId });
-    new_group.save();
-    return res
-      .status(201)
-      .send({ type: "success", message: "Group is created" });
+    const { userId } = req.body;
+    const new_group = new WorkGroupModel({ ...req.body, userId });
+    await new_group.save();
+    res.status(201).send({ type: "success", message: "Group is created" });
   } catch (error) {
-    return res.status(500).send({ type: "error", message: "An error occured" });
+    res.status(500).send({ type: "error", message: "An error occured" });
   }
 });
 
-WorkGroupRouter.patch("/edit/:id", async (req, res) => {
+WorkGroupRouter.patch("/edit/:id", authentication, async (req, res) => {
   const { id } = req.params;
+  const { userId } = req.body;
   try {
-    const updatedGroup = WorkGroupModel.finfByIdAndUpdate(id, req.body);
-    updatedGroup.save();
-    return res
-      .status(201)
-      .send({ type: "success", message: "Group is updated" });
+    const updated = await WorkGroupModel.findOneAndUpdate(
+      { _id: id, userId },
+      req.body
+    );
+    if (updated) {
+      res.status(201).send({ type: "success", message: "Group is updated" });
+    } else {
+      res.status(500).send({ type: "error", message: "An error occured" });
+    }
   } catch (error) {
-    return res.status(500).send({ type: "error", message: "An error occured" });
+    res.status(500).send({ type: "error", message: "An error occured" });
   }
 });
 
-WorkGroupRouter.delete("/delete/:id", async (req, res) => {
+WorkGroupRouter.delete("/delete/:id", authentication, async (req, res) => {
   const { id } = req.params;
+  const { userId } = req.body;
   try {
-    const remaiGroups = WorkGroupModel.finfByIdAndUpdate(id, { delete: true });
-    remaiGroups.save();
-    return res
-      .status(201)
-      .send({ type: "success", message: "Group is deleted" });
+    const deleted = await WorkGroupModel.findOneAndDelete({
+      _id: id,
+      userId,
+    });
+    if (deleted) {
+      res.status(201).send({ type: "success", message: "Group is deleted" });
+    } else {
+      res.status(500).send({ type: "error", message: "An error occured" });
+    }
   } catch (error) {
-    return res.status(500).send({ type: "error", message: "An error occured" });
+    res.status(500).send({ type: "error", message: "An error occured" });
   }
 });
 
