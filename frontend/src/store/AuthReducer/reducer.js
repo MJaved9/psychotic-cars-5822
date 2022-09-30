@@ -9,7 +9,7 @@ const initialState = {
   isError: false,
 };
 
-export const reducer = (state = initialState, action) => {
+export const authReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case types.LOGIN_REQUEST:
