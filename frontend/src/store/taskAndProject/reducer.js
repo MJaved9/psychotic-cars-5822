@@ -6,7 +6,7 @@ const initialState = {
   isError: false,
 };
 
-const reducer = (state = initialState, action) => {
+const taskReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case types.ADD_TASK_REQUEST:
@@ -58,7 +58,7 @@ const reducer = (state = initialState, action) => {
       };
     case types.Edit_Task:
       const index = state.tasks.findIndex((i) => i._id === payload._id);
-      
+
       const edited = [...state.tasks];
       edited.splice(index, 1, payload);
       console.log(edited);
@@ -72,4 +72,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export { reducer };
+export { taskReducer };
