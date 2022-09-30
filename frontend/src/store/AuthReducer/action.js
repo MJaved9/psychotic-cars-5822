@@ -9,9 +9,9 @@ const login = (payload) => (dispatch) => {
     data: payload,
   })
     .then((r) => {
-      console.log(r);
+      console.log(r,"data");
       localStorage.setItem("token", r.data.token);
-      // localStorage.setItem("", r.data.token);
+      // localStorage.setItem("", r.data.token);           
       dispatch({ type: types.LOGIN_SUCCESS, payload: r.data.token });
       return types.LOGIN_SUCCESS;
     })

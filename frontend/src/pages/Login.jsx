@@ -43,7 +43,7 @@ export default function UserLogin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const comingFrom = location.state?.from?.pathname || "/stream";
+  const comingFrom = location.state?.from?.pathname || "/";
 
 
 
