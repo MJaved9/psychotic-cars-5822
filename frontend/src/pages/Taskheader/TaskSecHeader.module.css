@@ -2,6 +2,7 @@
     height: 80px;
     width: 100%;
     box-sizing: border-box;
+    padding-top : 20px;
 }
 .h1{
     color: white;

@@ -43,9 +43,7 @@ export default function UserLogin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const comingFrom = location.state?.from?.pathname || "/";
-
-
+  const comingFrom = location.state?.from?.pathname || "/dashboard/tasks";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,7 +60,7 @@ export default function UserLogin() {
   };
 
   return (
-    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
+    <Stack minH={"100vh"} direction={{ base: "column", md: "row" }} bg="#fff">
       <Flex flex={1}>
         <Image alt={"Login Image"} objectFit={"cover"} src={loginImg} />
       </Flex>
@@ -138,8 +136,8 @@ export default function UserLogin() {
               // onClick={handleSignIn}
             >
               {/* <Center> */}
-              <a href="https://reqres.in/api/register">  
-              {/* We ca use O OUTH URL Here... */}
+              <a href="https://reqres.in/api/register">
+                {/* We ca use O OUTH URL Here... */}
                 Sign in with Google
               </a>
               {/* </Center> */}
