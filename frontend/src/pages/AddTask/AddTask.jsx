@@ -24,16 +24,14 @@ import {
 } from "@chakra-ui/react";
 import styles from "./AddTask.module.css";
 
-import{addTask, getTask} from "../../store/taskAndProject/action"
-
+import { addTask, getTask } from "../../store/taskAndProject/action";
 
 import { ADD_TASK_SUCCESS } from "../../store/taskAndProject/actionType";
-import { useDispatch, useSelector, } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
 
 function AddTask() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const isAuth = useSelector((state) => state.AuthReducer.data.isAuth);
+  const isAuth = useSelector((state) => state.auth.data.isAuth);
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState("");
@@ -46,7 +44,7 @@ function AddTask() {
   const [time, setTime] = useState("");
   const [tag, setTag] = useState("");
   const token = localStorage.getItem("token");
-  const addTaskHandler = async () => {
+  const addTaskHandler = () => {
     let new_task = {
       title,
       description,
@@ -59,21 +57,7 @@ function AddTask() {
       deadline,
     };
 
-
-    dispatch(addTask(new_task,token )).then((r) => {
-      // console.log(r);
-      if (r === ADD_TASK_SUCCESS) {
-        onClose();
-        setTitle("");
-        setDescription("");
-        setassignedToId([]);
-        setCreator("");
-        setTime("");
-        setProject("");
-        setDeadline("");
-        dispatch(getTask()) 
-      }
-    });
+    dispatch(addTask(new_task, token));
   };
 
   const handleKeyDown = (e) => {

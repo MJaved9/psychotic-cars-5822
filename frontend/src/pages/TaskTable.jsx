@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import styles from './AddTask/AddTask.module.css';
-import {Table,Thead,
+import styles from "./AddTask/AddTask.module.css";
+import { FaTasks } from "react-icons/fa";
+import {
+  Table,
+  Thead,
   Tbody,
   Tr,
   Th,
@@ -9,6 +12,7 @@ import {Table,Thead,
   IconButton,
   Tag,
   useToast,
+  Heading,
 } from "@chakra-ui/react";
 import {
   Drawer,
@@ -46,11 +50,10 @@ import {
   updateTask,
 } from "../store/taskAndProject/action";
 
-const email = localStorage.getItem("email")
+const email = localStorage.getItem("email");
 
- const TaskTable = () => {
-  const tasks = useSelector((state) => state.taskAndProject.tasks);
-  // console.log(tasks)
+const TaskTable = () => {
+  const tasks = useSelector((state) => state.task.tasks);
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [title, setTitle] = useState("");
@@ -70,8 +73,7 @@ const email = localStorage.getItem("email")
     dispatch(getTask(token));
   }, []);
 
-
-  console.log(tasks,"task")
+  console.log(tasks, "task");
   const addTaskHandler = () => {
     const updatedTask = {
       title,
@@ -140,7 +142,14 @@ const email = localStorage.getItem("email")
   };
 
   return (
-    <div>
+    <div
+      style={{
+        background: "#fff",
+        height: "350px",
+        margin: "50px auto",
+        overflowY: "scroll",
+      }}
+    >
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="xl">
         <DrawerOverlay>
           <DrawerContent>
@@ -291,79 +300,95 @@ const email = localStorage.getItem("email")
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
-      <TableContainer>
-        <Table variant="simple" colorScheme="blackAlpha">
-          <Thead>
-            <Tr>
-              <Th pl="70px">Name</Th>
-              <Th>Active</Th>
-              <Th> Deadline</Th>
-              <Th> Created by</Th>
-              <Th> Responsible person</Th>
-              <Th> Tags</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            { tasks?.length > 0
-              ? tasks?.map((e) => {
-                  return (
-                    <Tr key={e._id}>
-                      <Td>
-                        <div style={{ display: "flex", gap: "5px" }}>
-                          <IconButton
-                            onClick={() => handleEdit(e._id)}
-                            icon={<EditIcon />}
-                            size="xs"
-                          />
-                          <IconButton
-                            onClick={() => handleDelete(e._id)}
-                            icon={<DeleteIcon />}
-                            size="xs"
-                          />
-                          {e.title}
-                        </div>
-                      </Td>
-                      <Td> active</Td>
-                      <Td>
-                        <Tag
-                          backgroundColor="rgb(241,184,59)"
-                          color="white"
-                          variant="solid"
-                        >
-                          {e.deadline}
-                        </Tag>
-                      </Td>
-                      <Td>
-                        <div style={{ display: "flex", gap: "5px" }}>
-                          <FaUserCircle size="20px" />
-                          {e.description}
-                        </div>
-                      </Td>
-                      <Td>
-                        <div style={{ display: "flex", gap: "5px" }}>
-                          <FaUserCircle size="20px" />
-                          {e.assignedToId.map((el, index) => {
-                            return <p key={index}>{email}</p>;
-                          })}
-                        </div>
-                      </Td>
-                      <Td>
-                        {/* <Tag
+      {tasks.length === 0 ? (
+        <div
+          style={{
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <FaTasks style={{ fontSize: "60px", color: "gray" }} />
+          <Heading color="gray.500" fontWeight="400" fontSize="25px" pl="20px">
+            Tasks Will Display Here
+          </Heading>
+        </div>
+      ) : (
+        <TableContainer>
+          <Table variant="simple" colorScheme="blackAlpha">
+            <Thead>
+              <Tr>
+                <Th pl="70px">Name</Th>
+                <Th>Active</Th>
+                <Th> Deadline</Th>
+                <Th> Created by</Th>
+                <Th> Responsible person</Th>
+                <Th> Tags</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {tasks?.length > 0
+                ? tasks?.map((e) => {
+                    return (
+                      <Tr key={e._id}>
+                        <Td>
+                          <div style={{ display: "flex", gap: "5px" }}>
+                            <IconButton
+                              onClick={() => handleEdit(e._id)}
+                              icon={<EditIcon />}
+                              size="xs"
+                            />
+                            <IconButton
+                              onClick={() => handleDelete(e._id)}
+                              icon={<DeleteIcon />}
+                              size="xs"
+                            />
+                            {e.title}
+                          </div>
+                        </Td>
+                        <Td> active</Td>
+                        <Td>
+                          <Tag
+                            backgroundColor="rgb(241,184,59)"
+                            color="white"
+                            variant="solid"
+                          >
+                            {e.deadline}
+                          </Tag>
+                        </Td>
+                        <Td>
+                          <div style={{ display: "flex", gap: "5px" }}>
+                            <FaUserCircle size="20px" />
+                            {e.description}
+                          </div>
+                        </Td>
+                        <Td>
+                          <div style={{ display: "flex", gap: "5px" }}>
+                            <FaUserCircle size="20px" />
+                            {e.assignedToId.map((el, index) => {
+                              return <p key={index}>{email}</p>;
+                            })}
+                          </div>
+                        </Td>
+                        <Td>
+                          {/* <Tag
                           backgroundColor="rgb(232,234,239)"
                           color="gray"
                           variant="solid"
                         >
                           {e.deadline} */}
-                        {/* </Tag>  */}
-                      </Td>
-                    </Tr>
-                  );
-                })
-              : null}
-          </Tbody>
-        </Table>
-      </TableContainer>
+                          {/* </Tag>  */}
+                        </Td>
+                      </Tr>
+                    );
+                  })
+                : null}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      )}
     </div>
   );
 };
-export default TaskTable
+export default TaskTable;
