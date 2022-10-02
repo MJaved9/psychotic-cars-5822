@@ -1,6 +1,6 @@
 .search_Box{
-    background-color: rgb(47, 66, 104);
-    width: 130px;
+    background-color: #fff;
+    width: 240px;
     height: 35px;
     box-sizing: border-box;
     border-radius: 15px;
@@ -8,12 +8,7 @@
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
+    /* -webkit-transition: width 0.4s ease-in-out; */
     transition: width 0.4s ease-in-out;
     
-}
-.search_Box:focus {
-    outline: none;
-    width:100%;
-    background-color:white;
 }
