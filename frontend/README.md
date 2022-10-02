@@ -6,7 +6,7 @@ Bitrix24 is a client management solution that provides a platform for businesses
 
 **Original website link**: https://www.bitrix24.com
 
-**Netlify link of our project**: 
+**Netlify link of our project**:  https://bitrix24-website-clone.netlify.app/
 
 ## Authors
 - Ansh Girdhar - Team Lead
