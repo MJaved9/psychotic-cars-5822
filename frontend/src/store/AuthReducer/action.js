@@ -5,7 +5,7 @@ const login = (payload) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
   return axios({
     method: "post",
-    url: "http://localhost:7500/login",
+    url: "https://bitrix24-backend.herokuapp.com/login",
     data: payload,
   })
     .then((r) => {

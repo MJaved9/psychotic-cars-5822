@@ -67,6 +67,7 @@ const TaskTable = () => {
   const [tag, setTag] = useState("");
   const [id, setId] = useState("");
   const token = localStorage.getItem("token");
+  const email=JSON.parse(localStorage.getItem("email"))
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -199,10 +200,10 @@ const TaskTable = () => {
                 <Box w="80%">
                   <Flex justifyContent={"space-between"}>
                     <FormLabel mt="10px">Responsible person</FormLabel>
-                    <div className={styles.tagsbox}>
+                    <div className={styles.tagsbox}> {email}
                       {assignedToId.map((tag, index) => (
                         <div key={index} className={styles.tagsitem}>
-                          <span className={styles.text}>{tag}</span>
+                          <span className={styles.text}>{email}</span>
                           <span className={styles.close}>&times;</span>
                         </div>
                       ))}
@@ -366,9 +367,9 @@ const TaskTable = () => {
                         <Td>
                           <div style={{ display: "flex", gap: "5px" }}>
                             <FaUserCircle size="20px" />
-                            {e.assignedToId.map((el, index) => {
-                              return <p key={index}>{email}</p>;
-                            })}
+                            
+                               <p>{email}</p>
+                          
                           </div>
                         </Td>
                         <Td>

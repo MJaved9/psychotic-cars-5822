@@ -6,6 +6,7 @@ import { RiCheckboxCircleFill } from "react-icons/ri";
 import { MdCheckCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { icons } from "react-icons/lib";
+import Footer from "../components/Footer";
 export const Home = () => {
   const iconStyle = { color: "5CC4FC" };
   return (
@@ -137,6 +138,7 @@ export const Home = () => {
       </div>
       <br></br>
       <br></br>
+      <Footer/>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "./Solutions.module.css";
 import HomeNavbar from "../components/HomeNavbar";
+import Footer from "../components/Footer";
 const Solutions = () => {
   return (
     <>
@@ -192,6 +193,7 @@ const Solutions = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
