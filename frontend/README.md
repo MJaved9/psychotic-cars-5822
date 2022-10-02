@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Bitrix24
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bitrix24 is a client management solution that provides a platform for businesses to organize and track interactions with potential or existing clients and partners.
 
-## Available Scripts
+## Acknowledgements
 
-In the project directory, you can run:
+**Original website link**: https://www.bitrix24.com
 
-### `npm start`
+**Netlify link of our project**:  https://bitrix24-website-clone.netlify.app/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Authors
+- Ansh Girdhar - Team Lead
+- Bhavesh Jain
+- Shweta Mishra
+- Haresh Solanki
+- Mohammad Javed
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ ## Tech Stack
 
-### `npm test`
+### Frontend
+- HTML
+- CSS
+- Javascript
+- ReactJS
+- Redux
+- Chakra Ui
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
+- NodeJS
+- Express
+- MongoDB
+- Mongoose
 
-### `npm run build`
+## Pages built
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Landing Page**: It contains navbar, banner, footer.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Sign up / Sign in**: For creating and signing an account.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Pricing Page**: It contains different pricing plans.
 
-### `npm run eject`
+**Solutions Page**: It contains different solutions.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Dashboard**: It contains different categories like calendar, task and project, and work group.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Calendar Page**: It contains event scheduling as per dates.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Task and Project Page and Work Group**: It contains task and projects made by user with all the crud operations.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Screenshots
 
-## Learn More
+**Landing Page**
+![App Screenshot](https://i.imgur.com/nxw1BuH.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Sign up**
+![App Screenshot](https://i.imgur.com/Rko24qy.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Sign in / Login**
+![App Screenshot](https://i.imgur.com/ygskY8o.png)
 
-### Code Splitting
+**Footer**
+![App Screenshot]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Pricing**
+![App Screenshot](https://i.imgur.com/WE97SRq.png)
 
-### Analyzing the Bundle Size
+**Solutions**
+![App Screenshot](https://i.imgur.com/uxIvFhZ.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Roles and Responsibilities
 
-### Making a Progressive Web App
+- Github repository by **Ansh Girdhar**
+- Navbar made by **Mohammad Javed**
+- Landing page design made by **Mohammad Javed**
+- Footer made by **Shweta Mishra**
+- Sign in and Login made by **Mohammad Javed**
+- Pricing page made by **Haresh Solanki**
+- Solutions page made by **Shweta Mishra**  
+- Dashboard & Work Group page made by **Ansh Girdhar**
+- Task and Project page made by **Shweta Mishra** 
+- Calendar page frontend and backend made by **Bhavesh Jain**
+- Login / Signup / Authentication backend made by **Bhavesh Jain**
+- Task and Projects / Work Group backend made by **Haresh Solanki**   
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Lessons Learned
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Use of GitHub to collaborate.
+- Building a website using HTML, CSS, Javascript(Local Storage),ReactJs Redux, NodeJS, Express, MongoDB, Mongoose .
+- How to read and understand colleague's code efficiently.

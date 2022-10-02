@@ -96,7 +96,7 @@ const TeamMembers = () => {
         mb="30px"
       >
         <Box>
-          <Heading color="gray.100" fontWeight="400" fontSize="25px">
+          <Heading color="#fff" fontWeight="400" fontSize="25px">
             Workgroups and projects
           </Heading>
         </Box>
@@ -201,7 +201,7 @@ const TeamMembers = () => {
           <DrawerHeader>Add Team Member</DrawerHeader>
 
           <DrawerBody>
-            <FormControl isRequired>
+            <FormControl>
               <Input
                 placeholder="Name"
                 name="name"
