@@ -43,6 +43,30 @@ const Sidebar = () => {
           <ListItem>
             <Link to="/dashboard/teams">Teams</Link>
           </ListItem>
+          <ListItem>
+           Marketing
+          </ListItem>
+          <ListItem>
+           Automation
+          </ListItem>
+          <ListItem>
+           CRM
+          </ListItem>
+          <ListItem>
+           Company
+          </ListItem>
+          <ListItem>
+           Chat & Calls
+          </ListItem>
+          <ListItem>
+           Sites & Stores
+          </ListItem>
+          <ListItem>
+           Applications
+          </ListItem>
+          <ListItem>
+           Webmail
+          </ListItem>
         </Stack>
       </UnorderedList>
     </Box>

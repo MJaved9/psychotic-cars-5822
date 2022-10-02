@@ -3,7 +3,7 @@ const addTask = (new_task, token) => async (dispatch) => {
   console.log("new_task", new_task);
   dispatch({ type: types.ADD_TASK_REQUEST });
   try {
-    await fetch("http://localhost:7500/tasks/create", {
+    await fetch("https://bitrix24-backend.herokuapp.com/tasks/create", {
       method: "POST",
       body: JSON.stringify(new_task),
       headers: {
@@ -20,7 +20,7 @@ const addTask = (new_task, token) => async (dispatch) => {
 
 const getTask = (token) => async (dispatch) => {
   dispatch({ type: types.GET_TASK_REQUEST });
-  const r = await fetch("http://localhost:7500/tasks/getTasks", {
+  const r = await fetch("https://bitrix24-backend.herokuapp.com/tasks/getTasks", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -37,7 +37,7 @@ const getTask = (token) => async (dispatch) => {
 };
 
 const deleteTask = (id, token) => async (dispatch) => {
-  return await fetch(`http://localhost:7500/tasks/delete/${id}`, {
+  return await fetch(`https://bitrix24-backend.herokuapp.com/tasks/delete/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const deleteTask = (id, token) => async (dispatch) => {
 };
 
 const updateTask = (id, token, payload) => async (dispatch) => {
-  return await fetch(`http://localhost:7500/tasks/edit/${id}`, {
+  return await fetch(`https://bitrix24-backend.herokuapp.com/tasks/edit/${id}`, {
     method: "PATCH",
     body: JSON.stringify(payload),
     headers: {

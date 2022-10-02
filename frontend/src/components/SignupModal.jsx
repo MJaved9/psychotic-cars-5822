@@ -37,7 +37,7 @@ function SignupModal() {
       age,
     };
 
-    await fetch("http://localhost:7500/signup", {
+    await fetch("https://bitrix24-backend.herokuapp.com/signup", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {

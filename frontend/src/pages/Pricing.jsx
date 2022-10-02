@@ -2,6 +2,8 @@ import React from "react";
 import styles from "../style/pricing.module.css";
 import { GrDown } from "react-icons/gr";
 import PricingPlan from "../components/PricingPlan";
+import Homenavbar from "../components/HomeNavbar";
+import Footer from "../components/Footer"
 export const Pricing = () => {
   const freeHeadings = [
     "Tasks & projects",
@@ -20,6 +22,8 @@ export const Pricing = () => {
   ];
 
   return (
+    <>
+    <Homenavbar/>
     <div className={styles.pricing_container}>
       <div className={styles.pricing_heading}>
         <div>
@@ -137,5 +141,7 @@ export const Pricing = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };

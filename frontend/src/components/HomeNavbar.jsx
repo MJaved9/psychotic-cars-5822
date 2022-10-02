@@ -38,6 +38,7 @@ const Homenavbar = () => {
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={"#525C69"}
+        justifyContent="space-around"
         alignItems={"center"}
       >
         <div className={styled.test}>
@@ -61,7 +62,7 @@ const Homenavbar = () => {
               </MenuButton>
               <MenuList>
                 <MenuItem>
-                  <Link to={"/tools"}>Tools</Link>
+                  <Link to={"#"}>Tools</Link>
                 </MenuItem>
                 <MenuDivider />
                 <MenuItem>
@@ -97,7 +98,7 @@ const Homenavbar = () => {
             <nav></nav>
           </div>
         </div>
-        &nbsp; &nbsp; &nbsp;
+      
         <div style={{ marginRight: "20px" }}>
           <Link to={"/"}>
             <img
@@ -118,7 +119,7 @@ const Homenavbar = () => {
           alignItems="center"
         >
           <Text color="black" fontWeight="600" className={styled.img}>
-            <Link to={"/tools"}> TOOLS </Link>
+            <Link to={"#"}> TOOLS </Link>
           </Text>
           <Text color="black" fontWeight="600" className={styled.img}>
             <Link to={"/pricing"}>PRICING</Link>

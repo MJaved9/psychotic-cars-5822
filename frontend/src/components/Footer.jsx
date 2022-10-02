@@ -10,9 +10,9 @@ import SearchBox from '../pages/SearchBox';
 
 const Footer = () => {
     return <Box className={styled.main_div}>
-        <Box className={styled.main_div_frist_child}>
+        <Box className={styled.main_div_frist_child} borderBottom="1px solid white" paddingBottom={"20px"}>
 
-<Box>
+<Box >
     <p className={styled.allHeading_div}>BITRIX</p>
     <p className={styled.p}>Bitrix24</p>
     <p className={styled.p}> Pricing</p>
@@ -53,13 +53,13 @@ const Footer = () => {
     <p className={styled.p}>Desktop app</p>
     <p className={styled.p}>API/developers</p>
 </Box>
-<Box>
+<Box >
     <p className={styled.allHeading_div}>PARTNERS</p>
     <p className={styled.p}>Find a partner</p>
     <p className={styled.p}>Become a partner</p>
     <p className={styled.p}>Partner login</p>
 </Box>
-<hr />
+
         </Box>
 
 <Box className={styled.main_div_last_child}>
