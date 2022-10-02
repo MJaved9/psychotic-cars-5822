@@ -1,19 +1,21 @@
 import React from "react";
 import { IoIosStarOutline, IoMdSettings } from "react-icons/io";
-import AddTask from "../AddTask/AddTask";
-import style from "./TaskSecHeader.module.css";
-import TaskSerch from "./TaskSerch";
+
+import style from "../pages/Taskheader/TaskSecHeader.module.css";
+import TaskSerch from "../pages/Taskheader/TaskSerch";
 import { FiSettings, FiZap } from "react-icons/fi";
 import { Box, Divider } from "@chakra-ui/layout";
 import { MdFlashOn } from "react-icons/md";
-const TaskSecHeader = () => {
+import AddEventModal from "./AddEventModal";
+import { Button,Text } from "@chakra-ui/react";
+const CalendarHeader = ({setModalOpen}) => {
   return (
     <div className={style.main_div}>
       <div className={style.first_div}>
         <div className={style.my_task_div}>
           <div style={{ width: "127px" }}>
             {" "}
-            <h1 className={style.h1}>My tasks</h1>
+            <Text className={style.h1}>Calendar</Text>
           </div>
           <div>
             <IoIosStarOutline className={style.stare_icon} />
@@ -21,7 +23,9 @@ const TaskSecHeader = () => {
         </div>
 
         <div>
-          <AddTask />
+       
+        
+          <Button onClick={() => setModalOpen(true)} bg="#bbed21" borderRadius="0px" >New Event </Button>
         </div>
         <div style={{ width: "80%", marginLeft: "10%" }}>
           <TaskSerch />
@@ -42,4 +46,4 @@ const TaskSecHeader = () => {
   );
 };
 
-export default TaskSecHeader;
+export default CalendarHeader;

@@ -1,123 +1,97 @@
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Checkbox, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, FormLabel, Input, Modal, Stack, Textarea } from "@chakra-ui/react";
 import React, { useState } from "react";
-import {
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  Stack,
-  Box,
-  Input,
-  FormLabel,
-  Textarea,
-  Button,
-  useDisclosure,
-  Checkbox,
-  Flex,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-} from "@chakra-ui/react";
-import styles from "./AddTask.module.css";
+import styles from "../pages/AddTask/AddTask"
+// import Modal from "react-modal";
+import Datetime from 'react-datetime';
 
-import { addTask, getTask } from "../../store/taskAndProject/action";
 
-import { ADD_TASK_SUCCESS } from "../../store/taskAndProject/actionType";
-import { useDispatch, useSelector } from "react-redux";
+ function AddEventModal({isOpen, onClose, onEventAdded}){
 
-function AddTask() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const isAuth = useSelector((state) => state.auth.data.isAuth);
-  const dispatch = useDispatch();
+    const [title,setTitle]=useState("")
+    const [start,setStart]=useState(new Date())
+    const [end,setEnd]=useState(new Date())
 
-  const [title, setTitle] = useState("");
-  const [highPriority, sethighPriority] = useState(false);
-  const [description, setDescription] = useState("");
-  const [creator, setCreator] = useState("");
-  const [assignedToId, setassignedToId] = useState([]);
-  const [deadline, setDeadline] = useState("");
-  const [project, setProject] = useState("");
-  const [time, setTime] = useState("");
-  const [tag, setTag] = useState("");
-  const token = localStorage.getItem("token");
-  const addTaskHandler = () => {
-    let new_task = {
-      title,
-      description,
-      time,
-      creator,
-      assignedToId,
-      tag,
-      highPriority,
-      project,
-      deadline,
-    };
+    
 
-    dispatch(addTask(new_task, token));
-  };
+    function onSubmit(e){
+e.preventDefault()
+onEventAdded({
+    title,
+    start,
+    end
+})
+onClose()
 
-  const handleKeyDown = (e) => {
-    // console.log(e.key)
-    if (e.key !== "Enter") return;
-    console.log(e.target.value);
-    const value = e.target.value;
-    // if(value.trim()) return
-    setassignedToId([...assignedToId, value]);
-    e.target.value = "";
-  };
 
-  return (
-    <>
-      <Button bgColor={"#bbed21"} borderRadius="none" onClick={onOpen}>
-        NEW TASK
-      </Button>
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="xl">
+    }
+
+    // return (
+    //     <Modal isOpen={isOpen} onRequestClose={onClose}>
+
+    //         <form action="" onSubmit={onSubmit}>
+    //             <input type="text" placeholder="title"  onChange={(e)=>setTitle(e.target.value)} />
+    //             <div>
+    //               <label htmlFor="">Start Date </label>
+    //             <Datetime value={start} onChange={date => setStart(date)} />
+    //             </div>
+
+    //             <div>
+    //               <label htmlFor="">End Date </label>
+    //             <Datetime value={end} onChange={date => setEnd(date)} />
+    //             </div>
+    //             <button type="submit">Add event</button>
+                
+    //         </form>
+
+    //     </Modal>
+    // )
+    return (
+        <>
+       
+        <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="xl">
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
             <DrawerHeader borderBottomWidth="1px" backgroundColor={"#f4f7f8"}>
-              New task
+              New Event
             </DrawerHeader>
             <DrawerBody>
               <Stack spacing="24px">
                 <Flex justifyContent={"space-between"}>
                   <Input
                     id="title"
-                    placeholder="Things to do"
+                    placeholder="New Event"
                     width="60%"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                   />
                   <Checkbox
-                    checked={highPriority}
-                    onChange={(e) => {
-                      sethighPriority(e.target.checked);
-                    }}
+                    
                   >
                     Priority
                   </Checkbox>
                 </Flex>
+                <Flex justifyContent={"flex-start"} gap="100px">
                 <Box>
-                  <FormLabel htmlFor="desc">Description</FormLabel>
-                  <Textarea
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                  />
-                </Box>
+                 <FormLabel htmlFor="">Start Date </FormLabel>
+               <Datetime value={start} onChange={date => setStart(date)} />
+               </Box>
+               <Box>
+                 <FormLabel htmlFor="">End Date </FormLabel>
+                 <Datetime value={end} onChange={date => setEnd(date)} />
+               </Box>
+                
+                 
+                </Flex>
                 <Box w="60%" alignItems={"left"}>
                   <Flex justifyContent={"space-between"}>
-                    <FormLabel htmlFor="username">Created by</FormLabel>
+                    <FormLabel htmlFor="username" w="25%">Created by</FormLabel>
                     <Input
-                      ml="50px"
+                      ml="100px"
                       id="creator"
                       placeholder="Add"
                       width="80%"
-                      value={creator}
-                      onChange={(e) => setCreator(e.target.value)}
+                   
                     />
                   </Flex>
                 </Box>
@@ -125,14 +99,9 @@ function AddTask() {
                   <Flex justifyContent={"space-between"}>
                     <FormLabel mt="10px">Responsible person</FormLabel>
                     <div className={styles.tagsbox}>
-                      {assignedToId.map((tag, index) => (
-                        <div key={index} className={styles.tagsitem}>
-                          <span className={styles.text}>{tag}</span>
-                          <span className={styles.close}>&times;</span>
-                        </div>
-                      ))}
+                     
                       <input
-                        onKeyDown={handleKeyDown}
+                        // onKeyDown={handleKeyDown}
                         type="text"
                         placeholder="+ Add more"
                         className={styles.tagsinput}
@@ -148,8 +117,8 @@ function AddTask() {
                       type="date"
                       id="deadline"
                       width="80%"
-                      value={deadline}
-                      onChange={(e) => setDeadline(e.target.value)}
+                    //   value={deadline}
+                    //   onChange={(e) => setDeadline(e.target.value)}
                     />
                   </Flex>
                 </Box>
@@ -172,8 +141,8 @@ function AddTask() {
                               id="project"
                               placeholder="Add"
                               width="70%"
-                              value={project}
-                              onChange={(e) => setProject(e.target.value)}
+                            //   value={project}
+                            //   onChange={(e) => setProject(e.target.value)}
                             />
                           </Flex>
                         </Box>
@@ -184,8 +153,8 @@ function AddTask() {
                               type="time"
                               id="time"
                               width="70%"
-                              value={time}
-                              onChange={(e) => setTime(e.target.value)}
+                            //   value={time}
+                            //   onChange={(e) => setTime(e.target.value)}
                             />
                           </Flex>
                         </Box>
@@ -196,8 +165,8 @@ function AddTask() {
                               id="tag"
                               placeholder="Add"
                               width="70%"
-                              value={tag}
-                              onChange={(e) => setTag(e.target.value)}
+                            //   value={tag}
+                            //   onChange={(e) => setTag(e.target.value)}
                             />
                           </Flex>
                         </Box>
@@ -215,17 +184,16 @@ function AddTask() {
               <Button
                 bgColor={"#bbed21"}
                 borderRadius="3px"
-                onClick={() => {
-                  addTaskHandler();
-                }}
+                onClick={onSubmit}
               >
-                ADD TASK
+                Save
               </Button>
             </DrawerFooter>
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
-    </>
-  );
+      </>
+    )
 }
-export default AddTask;
+
+export default AddEventModal

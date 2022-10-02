@@ -2,12 +2,12 @@ import React from "react";
 import {
   Box,
   Flex,
-  Link,
   ListItem,
   Stack,
   Text,
   UnorderedList,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -38,10 +38,10 @@ const Sidebar = () => {
             <Link to="/dashboard/calendar">Calendar</Link>
           </ListItem>
           <ListItem>
-            <Link to="/dashboard/tasks-projects">Tasks & Projects</Link>
+            <Link to="/dashboard/tasks">Tasks & Projects</Link>
           </ListItem>
           <ListItem>
-            <Link to="/dashboard/tasks-projects">Teams</Link>
+            <Link to="/dashboard/teams">Teams</Link>
           </ListItem>
         </Stack>
       </UnorderedList>
