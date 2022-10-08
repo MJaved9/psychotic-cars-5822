@@ -8,6 +8,7 @@ import AddEventModal from "../components/AddEventModal";
 import { Box } from "@chakra-ui/react";
 import CalendarHeader from "../components/CalendarHeader";
 import TaskSecHeader from "./Taskheader/TaskSecHeader";
+import DashboardNavbar from "../components/DashboardNavbar";
 
 
 const Calendar = () => {
@@ -43,6 +44,8 @@ const Calendar = () => {
 
   return (
     <Box w="70%" m="auto" >
+      
+      
       < CalendarHeader setModalOpen={setModalOpen}/>
       <Box w="100%" bg="#fff"  p="50px 50px" h="400px" overflowY={"scroll"} mt="50px">
         <Box position="relative" zIndex="0">
