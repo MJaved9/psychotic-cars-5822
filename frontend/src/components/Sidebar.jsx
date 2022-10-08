@@ -31,40 +31,40 @@ const Sidebar = () => {
               </Text>
             </Flex>
           </ListItem>
-          <ListItem>
+          <ListItem p="5px" _hover={{bg:"#4f9dd3" }}>
             <Link to="/dashboard">Feed</Link>
           </ListItem>
-          <ListItem>
+          <ListItem p="5px" _hover={{bg:"#4f9dd3" }}>
             <Link to="/dashboard/calendar">Calendar</Link>
           </ListItem>
-          <ListItem>
+          <ListItem p="5px" _hover={{bg:"#4f9dd3" }}>
             <Link to="/dashboard/tasks">Tasks & Projects</Link>
           </ListItem>
-          <ListItem>
+          <ListItem p="5px" _hover={{bg:"#4f9dd3" }}>
             <Link to="/dashboard/teams">Teams</Link>
           </ListItem>
-          <ListItem>
+          <ListItem p="5px" _hover={{bg:"#4f9dd3" }}>
            Marketing
           </ListItem>
-          <ListItem>
+          <ListItem p="5px" _hover={{bg:"#4f9dd3" }}>
            Automation
           </ListItem>
-          <ListItem>
+          <ListItem p="5px" _hover={{bg:"#4f9dd3" }}>
            CRM
           </ListItem>
-          <ListItem>
+          <ListItem p="5px" _hover={{bg:"#4f9dd3" }}>
            Company
           </ListItem>
-          <ListItem>
+          <ListItem p="5px" _hover={{bg:"#4f9dd3" }}>
            Chat & Calls
           </ListItem>
-          <ListItem>
+          <ListItem p="5px" _hover={{bg:"#4f9dd3" }}>
            Sites & Stores
           </ListItem>
-          <ListItem>
+          <ListItem p="5px" _hover={{bg:"#4f9dd3" }}>
            Applications
           </ListItem>
-          <ListItem>
+          <ListItem p="5px" _hover={{bg:"#4f9dd3" }}>
            Webmail
           </ListItem>
         </Stack>

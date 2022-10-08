@@ -46,16 +46,17 @@ const DashboardNavbar = () => {
   const userName = "userName";
 
   function handleHide() {
-    timeRef.current.style.display = "none";
+    timeRef.current.style.display =  "none";
   }
 
   return (
     <Box w="100%" color="white" bg="none" m="auto">
       <Flex
-      w="70%"
-        border="1px solid red"
-        gap="20px"
+      w="90%"
+       
+        
         alignItems="center"
+        justifyContent="space-around"
         m="auto"
         h="63px"
       >

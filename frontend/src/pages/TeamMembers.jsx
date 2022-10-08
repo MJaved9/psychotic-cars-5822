@@ -86,7 +86,7 @@ const TeamMembers = () => {
   }, []);
 
   return (
-    <Stack w="80%" p="50px">
+    <Stack w="100%" p="50px" m="auto">
       <Flex
         justifyContent="space-between"
         borderTopWidth="1px"
