@@ -43,7 +43,7 @@ const Calendar = () => {
   }
 
   return (
-    <Box w="70%" m="auto" >
+    <Box w="100%" p="50px" m="auto" >
       
       
       < CalendarHeader setModalOpen={setModalOpen}/>

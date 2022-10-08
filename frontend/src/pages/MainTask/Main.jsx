@@ -7,7 +7,7 @@ import Tasktable from "../TaskTable";
 
 const Main = () => {
   return (
-    <div style={{ width: "80%", height: "100vh", padding: "30px 50px" }}>
+    <div style={{ width:"100%", height: "100vh", padding: "50px",margin:"auto" }}>
       <div>
         {" "}
         <TaskHeader />
